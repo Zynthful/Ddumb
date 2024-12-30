@@ -1,5 +1,6 @@
 #include "MainComponent.h"
 
+#include "AudioEngine/ZAudioEngine.h"
 #include "Components/ZSoundTreeItem.h"
 
 //==============================================================================
@@ -101,6 +102,30 @@ void MainComponent::mouseDown(const juce::MouseEvent& event)
 
 void MainComponent::openButtonClicked()
 {
+    ImportFileChooser = std::make_unique<FileChooser>("Select a .wav to import...", File{}, "*.wav");
+    auto Flags = FileBrowserComponent::openMode | FileBrowserComponent::canSelectFiles;
+    ImportFileChooser->launchAsync(Flags, [this](const FileChooser& Chooser)
+    {
+        File File = Chooser.getResult();
+        if (File == juce::File{})
+        {
+            // Did not select a file
+            return;
+        }
+
+        //AudioFormatReader* Reader = AudioFormatManager.createReaderFor(File);
+        //if (Reader == nullptr)
+        //{
+        //    // Couldn't read the file
+        //    return;
+        //}
+
+        ZAudioEngine::PlaySound(File.getFullPathName());
+
+        //auto Source = std::make_unique<AudioFormatReaderSource>(Reader, true);
+        //transportSource.setSource(newSource.get(), 0, nullptr, reader->sampleRate);
+        //readerSource.reset(newSource.release());
+    });
 }
 
 void MainComponent::OnSoundTreeItemSelected(ZSoundTreeItem* SoundTreeItem)

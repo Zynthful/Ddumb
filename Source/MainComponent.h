@@ -42,7 +42,9 @@ private:
     ZSoundTreeComponent SoundTree;
     PropertyPanel PropertyPanel;
 
+    AudioFormatManager AudioFormatManager;
     juce::TextButton openButton;
+    std::unique_ptr<FileChooser> ImportFileChooser;
 
     void openButtonClicked();
 

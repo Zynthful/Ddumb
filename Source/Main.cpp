@@ -8,6 +8,7 @@
 
 #include <JuceHeader.h>
 #include "MainComponent.h"
+#include "AudioEngine/ZAudioEngine.h"
 
 //==============================================================================
 class DdumbApplication  : public juce::JUCEApplication
@@ -23,15 +24,13 @@ public:
     //==============================================================================
     void initialise (const juce::String& commandLine) override
     {
-        // This method is where you should put your application's initialisation code..
-
+        ZAudioEngine::Initialize();
         mainWindow.reset (new MainWindow (getApplicationName()));
     }
 
     void shutdown() override
     {
-        // Add your application's shutdown code here..
-
+        ZAudioEngine::Deinitialize();
         mainWindow = nullptr; // (deletes our window)
     }
 

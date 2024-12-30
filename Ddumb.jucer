@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="nM7BpU" name="Ddumb" projectType="guiapp" useAppConfig="0"
-              displaySplashScreen="1" jucerFormatVersion="1">
+              displaySplashScreen="1" jucerFormatVersion="1" companyName="Zynthful"
+              version="0.1" headerPath="../../Dependencies/fmod/Include">
   <MAINGROUP id="ggM4Bd" name="Ddumb">
     <GROUP id="{FB3A34B2-A1C5-953A-FD57-724F849393C8}" name="Source">
+      <GROUP id="{3DCBAD5D-0E60-2241-C0BF-0CA33037B382}" name="AudioEngine">
+        <FILE id="jVOlJ6" name="ZAudioEngine.cpp" compile="1" resource="0"
+              file="Source/AudioEngine/ZAudioEngine.cpp"/>
+        <FILE id="CGialq" name="ZAudioEngine.h" compile="0" resource="0" file="Source/AudioEngine/ZAudioEngine.h"/>
+      </GROUP>
       <GROUP id="{5E2B391F-C70B-9475-29A3-F8145D573ACB}" name="Components">
         <FILE id="M7AqJG" name="ZSoundTreeComponent.cpp" compile="1" resource="0"
               file="Source/Components/ZSoundTreeComponent.cpp"/>
@@ -26,23 +32,23 @@
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
   <EXPORTFORMATS>
-    <VS2022 targetFolder="Builds/VisualStudio2022">
+    <VS2022 targetFolder="Builds/VisualStudio2022" externalLibraries="lib/fmod_vc.lib&#10;lib/fmodL_vc.lib">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="Ddumb"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="Ddumb"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_events" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/Projucer/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/Projucer/modules"/>
+        <MODULEPATH id="juce_core" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_audio_basics" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_audio_devices" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_events" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_gui_basics" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_graphics" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_data_structures" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_audio_formats" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_audio_utils" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_audio_processors" path="..\..\JUCE\Projucer\modules"/>
+        <MODULEPATH id="juce_gui_extra" path="..\..\JUCE\Projucer\modules"/>
       </MODULEPATHS>
     </VS2022>
   </EXPORTFORMATS>
