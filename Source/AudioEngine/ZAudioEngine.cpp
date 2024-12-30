@@ -1,9 +1,9 @@
 /*
   ==============================================================================
 
-    ZAudioEngine.cpp
-    Created: 30 Dec 2024 1:53:40pm
-    Author:  Zynthful
+	ZAudioEngine.cpp
+	Created: 30 Dec 2024 1:53:40pm
+	Author:  Zynthful
 
   ==============================================================================
 */
@@ -21,18 +21,19 @@ ZAudioEngine::~ZAudioEngine()
 
 void ZAudioEngine::Initialize()
 {
-    Instance = new ZAudioEngine();
-    Instance->Implementation = new ZAudioEngineImpl();
+	Instance = new ZAudioEngine();
+	Instance->Implementation = new ZAudioEngineImpl();
 }
 
 void ZAudioEngine::Update()
 {
-    Instance->Implementation->Update();
+	Instance->Implementation->Update();
 }
 
 void ZAudioEngine::Deinitialize()
 {
-    delete Instance->Implementation;
+	delete Instance->Implementation;
+	delete Instance;
 }
 
 void ZAudioEngine::LoadSound(const String& SoundName, bool bLooping, bool bStream)

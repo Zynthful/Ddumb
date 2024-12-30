@@ -36,8 +36,6 @@ public:
 private:
     void RegisterItem(ZSoundTreeItem* SoundTreeItem);
 
-    std::unique_ptr<juce::PopupMenu> ContextMenu = nullptr;
-
     std::unique_ptr<ZSoundTreeItem> RootItem;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ZSoundTreeComponent)

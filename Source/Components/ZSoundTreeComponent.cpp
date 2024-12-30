@@ -24,20 +24,11 @@ ZSoundTreeComponent::ZSoundTreeComponent()
 	setRootItem(RootItem.get());
 	setRootItemVisible(false);
 	setMultiSelectEnabled(true);
-
-	// Build context menu
-	constexpr int SoundId = 1;
-	juce::PopupMenu AddChildMenu;
-	AddChildMenu.addItem(SoundId, "Sound");
-
-	ContextMenu = std::make_unique<juce::PopupMenu>();
-	ContextMenu->addSubMenu("Add...", AddChildMenu);
 }
 
 ZSoundTreeComponent::~ZSoundTreeComponent()
 {
 	RootItem.release();
-	ContextMenu.release();
 	deleteRootItem();
 }
 
@@ -91,7 +82,14 @@ void ZSoundTreeComponent::mouseUp(const juce::MouseEvent& event)
 	const bool bRightClicked = bClicked && event.mods.isRightButtonDown();
 	if (bRightClicked)
 	{
-		ContextMenu->showMenuAsync(juce::PopupMenu::Options(),
+		// Build context menu
+		constexpr int SoundId = 1;
+		juce::PopupMenu AddChildMenu;
+		AddChildMenu.addItem(SoundId, "Sound");
+
+		PopupMenu ContextMenu;
+		ContextMenu.addSubMenu("Add...", AddChildMenu);
+		ContextMenu.showMenuAsync(juce::PopupMenu::Options(),
 			[this](int result)
 		{
 			if (result == 0)
